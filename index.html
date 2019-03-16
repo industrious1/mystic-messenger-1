@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://vickyoopy.github.io/wahaha/ -->
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>（手机）mystic messenger角色版2048小游戏</title>
+
+    <link rel="icon" type="image/png" href="GPA_files/77.png" />
+    <link href="GPA_files/main.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="http://vickyoopy.github.io/wahaha/favicon.ico">
+    <link rel="apple-touch-icon" href="http://vickyoopy.github.io/wahaha/meta/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+    <style>
+        [touch-action="none"] {
+            -ms-touch-action: none;
+            touch-action: none;
+        }
+        
+        [touch-action="pan-x"] {
+            -ms-touch-action: pan-x;
+            touch-action: pan-x;
+        }
+        
+        [touch-action="pan-y"] {
+            -ms-touch-action: pan-y;
+            touch-action: pan-y;
+        }
+        
+        [touch-action="scroll"],
+        [touch-action="pan-x pan-y"],
+        [touch-action="pan-y pan-x"] {
+            -ms-touch-action: pan-x pan-y;
+            touch-action: pan-x pan-y;
+        }
+    </style>
+    <style id="clearly_highlighting_css" type="text/css">
+        /* selection */
+        
+        html.clearly_highlighting_enabled ::-moz-selection {
+            background: rgba(246, 238, 150, 0.99);
+        }
+        
+        html.clearly_highlighting_enabled ::selection {
+            background: rgba(246, 238, 150, 0.99);
+        }
+        /* cursor */
+        
+        html.clearly_highlighting_enabled {
+            /* cursor and hot-spot position -- requires a default cursor, after the URL one */
+            cursor: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--cursor.png") 14 16, text;
+        }
+        /* highlight tag */
+        
+        em.clearly_highlight_element {
+            font-style: inherit !important;
+            font-weight: inherit !important;
+            background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow.png");
+            background-repeat: repeat-x;
+            background-position: top left;
+            background-size: 100% 100%;
+        }
+        /* the delete-buttons are positioned relative to this */
+        
+        em.clearly_highlight_element.clearly_highlight_first {
+            position: relative;
+        }
+        /* delete buttons */
+        
+        em.clearly_highlight_element a.clearly_highlight_delete_element {
+            display: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+            line-height: 0;
+            position: absolute;
+            width: 34px;
+            height: 34px;
+            left: -17px;
+            top: -17px;
+            background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite.png");
+            background-repeat: no-repeat;
+            background-position: 0px 0px;
+        }
+        
+        em.clearly_highlight_element a.clearly_highlight_delete_element:hover {
+            background-position: -34px 0px;
+        }
+        /* retina */
+        
+        @media (min--moz-device-pixel-ratio: 2),
+        (-webkit-min-device-pixel-ratio: 2),
+        (min-device-pixel-ratio: 2) {
+            em.clearly_highlight_element {
+                background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow@2x.png");
+            }
+            em.clearly_highlight_element a.clearly_highlight_delete_element {
+                background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite@2x.png");
+                background-size: 68px 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="heading">
+            <h2 class="title">Mystic Messenger角色版2048</h2>
+            <div class="scores-container">
+                <div class="score-container">0</div>
+                <div class="best-container">0</div>
+            </div>
+        </div>
+        <hr>
+        <p class="game-intro">这里是mystic messenger的角色版2048小游戏～随便做的，如果有bug的话请反馈喔
+            <br>角色出现顺序为v-济希-流星-zen-jumin-ray-黑兰-unknown-707-MC-vanderwood<br> 希望大家最后都能玩到范女士！！
+        </p>
+
+
+        <div class="game-container">
+            <div class="game-message">
+                <p></p>
+                <div class="lower">
+                    <a class="keep-playing-button">继续游戏</a>
+                    <a class="retry-button">再来一局</a>
+                </div>
+            </div>
+
+            <div class="grid-container">
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+
+            <div class="tile-container">
+                <div class="tile tile-2 tile-position-3-1 tile-new">
+                    <div class="tile-inner">喵</div>
+                </div>
+                <div class="tile tile-2 tile-position-3-4 tile-new">
+                    <div class="tile-inner">喵</div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p>
+            <strong>PS：</strong>这个小游戏仅供大家闲暇时娱乐一下，请不要商用，原版为Ketchapp Games公司制作的2048游戏
+            <br>
+            <strong class="important">Rule</strong>:按方向键移动，两个相同的角色可以产生后一个角色,次序开头有提到,玩到 范女士就算你赢了！爪机党自觉划屏幕~～
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——一位mm爱好者 </p>
+        <img src="GPA_files/mint eye.png">
+        </img>
+
+
+
+    </div>
+
+    <script src="GPA_files/i18n.js"></script>
+    <script src="GPA_files/animframe_polyfill.js"></script>
+    <script src="GPA_files/keyboard_input_manager.js"></script>
+    <script src="GPA_files/html_actuator.js"></script>
+    <script src="GPA_files/grid.js"></script>
+    <script src="GPA_files/tile.js"></script>
+    <script src="GPA_files/local_score_manager.js"></script>
+    <script src="GPA_files/game_manager.js"></script>
+    <script src="GPA_files/application.js"></script>
+
+
+
+
+</body>
+
+</html>
